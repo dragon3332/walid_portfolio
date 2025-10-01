@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walid Irhil - Étudiant en Mathématiques & Développeur</title>
+    <title>Walid Irhil - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Tajawal:wght@400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --bg-light: #ffffff;
+            --bg-gray: #f8fafc;
+            --text-dark: #0f172a;
+            --text-gray: #475569;
+            --text-light: #94a3b8;
+            --border: #e2e8f0;
+            --shadow: rgba(15, 23, 42, 0.08);
+            --shadow-lg: rgba(15, 23, 42, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,174 +30,225 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gray);
+            color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            transition: background 0.3s ease, color 0.3s ease;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        body[dir="rtl"] {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        body[dir="rtl"] h1,
+        body[dir="rtl"] h2,
+        body[dir="rtl"] h3 {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 800;
+            letter-spacing: 0;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        body[dir="rtl"] p,
+        body[dir="rtl"] .subtitle,
+        body[dir="rtl"] .stat-label {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.9;
+            font-size: 1.1em;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        body[dir="rtl"] .hero-text h1 {
+            font-size: 4rem;
+            letter-spacing: 0.02em;
         }
 
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        body[dir="rtl"] .btn {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
         }
 
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+        body[dir="rtl"] nav a {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
         }
 
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
-            }
-            50% {
-                box-shadow: 0 10px 40px rgba(102, 126, 234, 0.8);
-            }
+        body[dir="rtl"] .tag {
+            font-family: 'Tajawal', sans-serif;
         }
 
+        body[dir="rtl"] .logo {
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        body[dir="rtl"] .profile-card h3 {
+            font-size: 1.5rem;
+        }
+
+        body[dir="rtl"] .section-header h2 {
+            font-size: 2.8rem;
+        }
+
+        body[dir="rtl"] .project-body h3 {
+            font-size: 1.6rem;
+            line-height: 1.4;
+        }
+
+        body[dir="rtl"] .stat-number {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body[dir="rtl"] .info-card h3,
+        body[dir="rtl"] .skill-category h3,
+        body[dir="rtl"] .semester-card h3,
+        body[dir="rtl"] .contact-card h3 {
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.4rem;
+        }
+
+        body[dir="rtl"] .module-title {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 600;
+        }
+
+        body[dir="rtl"] .interest-tag {
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 600;
+        }
+
+        body.dark {
+            --bg-light: #1e293b;
+            --bg-gray: #0f172a;
+            --text-dark: #f1f5f9;
+            --text-gray: #cbd5e1;
+            --text-light: #94a3b8;
+            --border: #334155;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --shadow-lg: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Header moderne et compact */
         header {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 1.5rem 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 0.8s ease-out;
-            transition: background 0.3s ease;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
 
-        .container {
-            max-width: 1200px;
+        body.dark header {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .nav-container {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
         }
 
-        .header-content {
-            text-align: center;
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-size: 200% 200%;
+        .lang-selector {
+            display: flex;
+            gap: 0.25rem;
+            background: var(--bg-gray);
+            padding: 0.25rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .lang-btn {
+            padding: 0.4rem 0.75rem;
+            border: none;
+            background: transparent;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            animation: gradientShift 6s ease infinite;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 1.3rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
         }
 
         nav {
-            margin-top: 1rem;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
         }
 
         nav a {
-            color: #667eea;
+            color: var(--text-gray);
             text-decoration: none;
-            margin: 0.5rem 15px;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
 
         nav a:hover {
-            color: #764ba2;
-            transform: translateY(-2px);
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
         }
 
-        #theme-toggle {
-            margin-top: 10px;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
+        .theme-toggle {
+            background: none;
             border: none;
-            background: #667eea;
-            color: white;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all 0.2s ease;
+            margin-left: 0.5rem;
         }
 
-        #theme-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        .theme-toggle:hover {
+            background: rgba(99, 102, 241, 0.1);
         }
 
+        /* Section Hero moderne */
         .hero {
-            background: white;
-            margin: 3rem auto;
-            padding: 4rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 1200px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 0.8s ease-out;
-            transition: background 0.3s ease;
         }
 
         .hero::before {
@@ -191,946 +257,764 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.15), transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.15), transparent 50%);
+            z-index: 0;
         }
 
         .hero-content {
+            max-width: 1280px;
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero-text p {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--primary);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
             align-items: center;
         }
 
-        .profile-section {
+        .profile-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 2rem;
+            box-shadow: 0 8px 32px var(--shadow-lg);
             text-align: center;
+            border: 1px solid var(--border);
         }
 
-        .profile-img {
-            width: 220px;
-            height: 220px;
+        .avatar {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 800;
             color: white;
             margin: 0 auto 1.5rem;
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
-            animation: float 3s ease-in-out infinite;
-            font-family: 'Space Grotesk', sans-serif;
-            position: relative;
-        }
-
-        .profile-img::after {
-            content: '';
-            position: absolute;
-            width: 240px;
-            height: 240px;
-            border: 3px solid rgba(102, 126, 234, 0.3);
-            border-radius: 50%;
-            animation: rotate 10s linear infinite;
-            border-top-color: #667eea;
-            border-right-color: transparent;
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
         }
 
         .social-links {
             display: flex;
+            gap: 0.75rem;
             justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.75rem;
+            background: var(--bg-gray);
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            border: 1px solid var(--border);
         }
 
-        .social-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
-            animation: glow 1s ease-in-out infinite;
-        }
-
-        .hero-text h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            color: #667eea;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            transition: color 0.3s ease;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 1.05rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-primary:hover {
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+            border-color: transparent;
         }
 
-        .btn-secondary {
-            background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
-        }
-
-        .btn-secondary:hover {
-            background: #667eea;
-            color: white;
-        }
-
+        /* Sections modernes */
         section {
-            background: white;
-            margin: 3rem auto;
-            padding: 3.5rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 1200px;
-            animation: fadeInUp 0.8s ease-out;
-            position: relative;
-            overflow: hidden;
-            transition: background 0.3s ease, color 0.3s ease;
+            padding: 5rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            color: #667eea;
+        .section-header h2 {
             font-size: 2.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-            display: inline-block;
-            transition: color 0.3s ease;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
         }
 
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
         }
 
+        /* Stats grid moderne */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
         .stat-card {
-            text-align: center;
+            background: var(--bg-light);
             padding: 2rem;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
+            border-radius: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .stat-card:hover {
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px var(--shadow-lg);
         }
 
         .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
-            color: #666;
-            font-size: 1.1rem;
-            margin-top: 0.5rem;
-            transition: color 0.3s ease;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Cards modernes */
+        .info-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
         .info-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: var(--bg-light);
             padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 1.5rem;
-            transition: all 0.4s ease;
-            border-left: 5px solid #667eea;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .info-card:hover::before {
-            left: 100%;
-        }
-
-        .info-card:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-
-        .info-card h3 {
-            color: #764ba2;
-            margin-bottom: 0.8rem;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
-            transition: color 0.3s ease;
-        }
-
-        .info-card p {
-            color: #555;
-            line-height: 1.8;
-            transition: color 0.3s ease;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            border-top: 4px solid #667eea;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
         }
 
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        .info-card:hover {
+            box-shadow: 0 12px 32px var(--shadow-lg);
+            transform: translateX(8px);
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Skills grid moderne */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
         }
 
         .skill-category h3 {
-            color: #667eea;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
             margin-bottom: 1.5rem;
-            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .skill-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
         }
 
-        .skill-name {
+        .skill-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .skill-name {
             font-weight: 600;
-            color: #333;
-            transition: color 0.3s ease;
+            color: var(--text-dark);
+        }
+
+        .skill-level {
+            color: var(--text-light);
+            font-weight: 500;
         }
 
         .skill-bar {
-            height: 12px;
-            background: #e0e0e0;
-            border-radius: 10px;
+            height: 8px;
+            background: var(--bg-gray);
+            border-radius: 1rem;
             overflow: hidden;
-            position: relative;
         }
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 10px;
-            transition: width 1.5s ease;
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 1rem;
+            transition: width 1s ease;
         }
 
-        .skill-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            animation: slideInRight 2s infinite;
-        }
-
+        /* Modules grid */
         .modules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2.5rem;
+            gap: 1.5rem;
         }
 
-        .semester {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        .semester-card {
+            background: var(--bg-light);
             padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid #667eea;
-            transition: all 0.4s ease;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
         }
 
-        .semester:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-        }
-
-        .semester h3 {
-            color: #667eea;
+        .semester-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 1.5rem;
-            font-size: 1.7rem;
-            font-family: 'Space Grotesk', sans-serif;
-            transition: color 0.3s ease;
         }
 
-        .module {
-            background: white;
-            padding: 1.3rem;
-            margin-bottom: 1rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
+        .module-item {
+            background: var(--bg-gray);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s ease;
         }
 
-        .module:hover {
-            transform: translateX(8px) scale(1.02);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
-            border-left-color: #764ba2;
+        .module-item:hover {
+            transform: translateX(5px);
+            background: rgba(99, 102, 241, 0.05);
         }
 
         .module-title {
             font-weight: 600;
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-            transition: color 0.3s ease;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
         }
 
         .module-desc {
-            font-size: 0.95rem;
-            color: #666;
-            font-weight: 300;
-            transition: color 0.3s ease;
+            font-size: 0.85rem;
+            color: var(--text-light);
         }
 
+        /* Projects grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
         }
 
         .project-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
+            background: var(--bg-light);
+            border-radius: 1.5rem;
             overflow: hidden;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
-            border-top: 4px solid #667eea;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px var(--shadow-lg);
         }
 
-        .project-image {
-            height: 180px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .project-icon {
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3.5rem;
         }
 
-        .project-content {
+        .project-body {
             padding: 1.5rem;
         }
 
-        .project-content h3 {
-            color: #667eea;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            transition: color 0.3s ease;
+        .project-body h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
         }
 
-        .project-content p {
-            color: #555;
+        .project-body p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
             margin-bottom: 1rem;
-            line-height: 1.7;
-            transition: color 0.3s ease;
         }
 
-        .project-tags {
+        .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
 
         .tag {
-            background: #667eea;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
-        .interests {
+        /* Interests */
+        .interests-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            justify-content: center;
         }
 
         .interest-tag {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            background-size: 200% 200%;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            font-size: 1.05rem;
-            font-weight: 500;
-            transition: all 0.4s ease;
-            cursor: pointer;
+            background: var(--bg-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 3rem;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
         .interest-tag:hover {
-            animation: pulse 0.6s ease-in-out;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-            background-position: 100% 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-3px);
+            border-color: transparent;
         }
 
+        /* Contact */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 1.5rem;
         }
 
         .contact-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2.5rem;
-            border-radius: 15px;
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 1.5rem;
             text-align: center;
+            border: 1px solid var(--border);
             transition: all 0.3s ease;
-            cursor: pointer;
         }
 
         .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 12px 32px var(--shadow-lg);
+            transform: translateY(-5px);
         }
 
         .contact-icon {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
         .contact-card h3 {
-            color: #667eea;
-            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
             margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-            transition: color 0.3s ease;
         }
 
         .contact-card p {
-            color: #666;
-            font-size: 1.05rem;
-            transition: color 0.3s ease;
+            color: var(--text-gray);
+            font-size: 0.95rem;
         }
 
+        /* Footer */
         footer {
+            background: var(--bg-light);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
             text-align: center;
-            color: white;
-            padding: 3rem 0;
-            margin-top: 3rem;
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
-
-        .footer-content p {
-            margin-bottom: 0.5rem;
+            color: var(--text-gray);
         }
 
         .footer-links {
-            margin-top: 1rem;
             display: flex;
-            justify-content: center;
             gap: 2rem;
+            justify-content: center;
+            margin: 1rem 0;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: white;
+            color: var(--text-gray);
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
         }
 
         .footer-links a:hover {
-            transform: translateY(-2px);
-            text-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+            color: var(--primary);
         }
 
-        .scroll-indicator {
+        /* Scroll to top */
+        .scroll-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
             transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
-            animation: float 2s ease-in-out infinite;
             z-index: 999;
         }
 
-        .scroll-indicator:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.7);
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(99, 102, 241, 0.6);
         }
 
-        /* Mode Sombre */
-        body.dark-mode {
-            background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
-            color: #f1f1f1;
-        }
-
-        body.dark-mode header {
-            background: rgba(20, 20, 20, 0.95);
-        }
-
-        body.dark-mode .subtitle {
-            color: #aaa;
-        }
-
-        body.dark-mode nav a {
-            color: #9a8dff;
-        }
-
-        body.dark-mode .hero,
-        body.dark-mode section {
-            background: #1f1f1f;
-            color: #f1f1f1;
-        }
-
-        body.dark-mode .hero-text h2,
-        body.dark-mode h2,
-        body.dark-mode .skill-category h3,
-        body.dark-mode .semester h3,
-        body.dark-mode .project-content h3,
-        body.dark-mode .contact-card h3,
-        body.dark-mode .info-card h3 {
-            color: #9a8dff;
-        }
-
-        body.dark-mode .hero-text p,
-        body.dark-mode .info-card p,
-        body.dark-mode .project-content p {
-            color: #ccc;
-        }
-
-        body.dark-mode .stat-card,
-        body.dark-mode .info-card,
-        body.dark-mode .skill-category,
-        body.dark-mode .semester,
-        body.dark-mode .project-card,
-        body.dark-mode .contact-card {
-            background: #2a2a2a;
-        }
-
-        body.dark-mode .module {
-            background: #1f1f1f;
-        }
-
-        body.dark-mode .stat-label,
-        body.dark-mode .module-desc,
-        body.dark-mode .contact-card p {
-            color: #aaa;
-        }
-
-        body.dark-mode .skill-name,
-        body.dark-mode .module-title {
-            color: #f1f1f1;
-        }
-
-        body.dark-mode .btn-secondary {
-            background: #2a2a2a;
-            color: #9a8dff;
-            border-color: #9a8dff;
-        }
-
-        body.dark-mode .btn-secondary:hover {
-            background: #9a8dff;
-            color: white;
-        }
-
+        /* Responsive */
         @media (max-width: 968px) {
             .hero-content {
                 grid-template-columns: 1fr;
+                text-align: center;
             }
 
-            h1 {
-                font-size: 2.2rem;
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
 
-            h2 {
-                font-size: 2rem;
+            .cta-group {
+                justify-content: center;
             }
 
-            .modules-grid, .projects-grid {
+            nav {
+                display: none;
+            }
+
+            .nav-container {
+                padding: 0.75rem 1rem;
+            }
+
+            .lang-selector {
+                order: -1;
+            }
+
+            .modules-grid,
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
-            nav a {
-                margin: 0.5rem 10px;
-                font-size: 0.95rem;
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-
-            .profile-img {
-                width: 180px;
-                height: 180px;
-                font-size: 4rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
         .fade-in {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
+            animation: fadeIn 0.6s ease-out;
         }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
-        .delay-6 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>Walid Irhil</h1>
-                <p class="subtitle">Étudiant en Mathématiques | Développeur Passionné</p>
-                <nav>
-                    <a href="#hero">🏠 Accueil</a>
-                    <a href="#about">👤 À Propos</a>
-                    <a href="#skills">💡 Compétences</a>
-                    <a href="#modules">📚 Modules</a>
-                    <a href="#projects">💼 Projets</a>
-                    <a href="#interests">🎯 Intérêts</a>
-                    <a href="#contact">📧 Contact</a>
-                </nav>
-                <button id="theme-toggle">🌙 Mode sombre</button>
+        <div class="nav-container">
+            <div class="logo">WI</div>
+            <nav>
+                <a href="#hero">Accueil</a>
+                <a href="#about">À Propos</a>
+                <a href="#skills">Compétences</a>
+                <a href="#modules">Modules</a>
+                <a href="#projects">Projets</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="nav-right">
+                <div class="lang-selector">
+                    <button class="lang-btn active" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="ar">AR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
             </div>
         </div>
     </header>
 
-    <div class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="profile-section">
-                    <div class="profile-img">WI</div>
-                    <div class="social-links">
-                        <a href="#" class="social-btn" title="GitHub">💻</a>
-                        <a href="#" class="social-btn" title="LinkedIn">💼</a>
-                        <a href="#" class="social-btn" title="Email">📧</a>
-                        <a href="#" class="social-btn" title="Instagram">📷</a>
-                    </div>
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Walid Irhil</h1>
+                <p class="subtitle">Étudiant en Mathématiques | Développeur Passionné</p>
+                <p>Étudiant en première année à l'ESEF El Jadida, je me spécialise dans l'enseignement des mathématiques tout en cultivant une passion pour la programmation et les technologies émergentes.</p>
+                <div class="cta-group">
+                    <a href="#contact" class="btn btn-primary">Me Contacter</a>
+                    <a href="#modules" class="btn btn-secondary">Voir mes Études</a>
                 </div>
-                <div class="hero-text">
-                    <h2>Bienvenue sur mon Portfolio !</h2>
-                    <p>Je suis <strong>Walid Irhil</strong>, étudiant passionné en première année à l'<strong>École Supérieure de l'Éducation et de la Formation à El Jadida (ESEF)</strong>, spécialisé dans l'enseignement des mathématiques.</p>
-                    <p>Passionné par la programmation et les technologies émergentes, j'aime relever des défis intellectuels et explorer de nouveaux horizons. Mon objectif est de combiner ma passion pour les mathématiques avec mes compétences en développement pour créer des solutions innovantes et impactantes.</p>
-                    <p>Amateur de <strong>Valorant</strong>, ce jeu stimule ma réflexion stratégique, ma réactivité et mon esprit d'équipe - des qualités essentielles dans le monde professionnel.</p>
-                    <div class="cta-buttons">
-                        <a href="#contact" class="btn btn-primary">💬 Me Contacter</a>
-                        <a href="#modules" class="btn btn-secondary">📖 Voir mes Études</a>
+            </div>
+            <div class="hero-visual">
+                <div class="profile-card">
+                    <div class="avatar">WI</div>
+                    <h3 style="margin-bottom: 0.5rem;">Walid Irhil</h3>
+                    <p style="color: var(--text-gray); font-size: 0.9rem;">ESEF El Jadida</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">💻</a>
+                        <a href="#" class="social-link">💼</a>
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">📷</a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <section id="about">
-        <div class="container">
-            <h2>📊 Mon Parcours en Chiffres</h2>
-            <div class="stats-grid">
-                <div class="stat-card fade-in delay-1">
-                    <div class="stat-number">1ère</div>
-                    <div class="stat-label">Année d'Études</div>
-                </div>
-                <div class="stat-card fade-in delay-2">
-                    <div class="stat-number">42+</div>
-                    <div class="stat-label">Modules Étudiés</div>
-                </div>
-                <div class="stat-card fade-in delay-3">
-                    <div class="stat-number">6</div>
-                    <div class="stat-label">Semestres au Total</div>
-                </div>
-                <div class="stat-card fade-in delay-4">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Motivation</div>
-                </div>
+        <div class="section-header">
+            <h2>Mon Parcours en Chiffres</h2>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">1ère</div>
+                <div class="stat-label">Année d'Études</div>
             </div>
+            <div class="stat-card">
+                <div class="stat-number">42+</div>
+                <div class="stat-label">Modules Étudiés</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Semestres au Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Motivation</div>
+            </div>
+        </div>
 
-            <h2 style="margin-top: 3rem;">✨ À Propos de Moi</h2>
-            <div class="info-card fade-in delay-1">
+        <div class="section-header">
+            <h2>À Propos de Moi</h2>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
                 <h3>🎓 Formation Académique</h3>
-                <p>Actuellement en première année à l'<strong>École Supérieure de l'Éducation et de la Formation (ESEF) à El Jadida</strong>, je me spécialise dans l'<strong>enseignement des mathématiques</strong>. Cette formation rigoureuse me permet d'acquérir une expertise solide en mathématiques pures et appliquées, tout en développant des compétences pédagogiques essentielles pour transmettre efficacement le savoir. J'étudie des domaines variés comme l'analyse, l'algèbre, la topologie, la géométrie et les statistiques.</p>
+                <p>Actuellement en première année à l'École Supérieure de l'Éducation et de la Formation (ESEF) à El Jadida, je me spécialise dans l'enseignement des mathématiques. J'étudie des domaines variés comme l'analyse, l'algèbre, la topologie et les statistiques.</p>
             </div>
-            <div class="info-card fade-in delay-2">
+            <div class="info-card">
                 <h3>💻 Passion pour la Programmation</h3>
-                <p>Au-delà des mathématiques, je suis profondément passionné par la <strong>programmation</strong> et le <strong>développement informatique</strong>. J'aime explorer les nouvelles technologies, créer des projets innovants et résoudre des problèmes complexes grâce au code. Je maîtrise plusieurs langages de programmation et frameworks, ce qui me permet d'avoir une approche unique et analytique dans la résolution de problèmes. Cette double compétence mathématiques-informatique est un atout majeur dans l'ère du numérique.</p>
+                <p>Au-delà des mathématiques, je suis profondément passionné par la programmation et le développement informatique. Je maîtrise plusieurs langages et frameworks, ce qui me permet d'avoir une approche unique dans la résolution de problèmes.</p>
             </div>
-            <div class="info-card fade-in delay-3">
+            <div class="info-card">
                 <h3>📍 Environnement & Localisation</h3>
-                <p>Je réside à <strong>Casablanca</strong>, la capitale économique et financière du Maroc. Cette métropole dynamique et cosmopolite m'offre un environnement stimulant où je peux enrichir mes connaissances, développer mes compétences et rester constamment connecté aux dernières tendances technologiques, scientifiques et culturelles. La ville offre également de nombreuses opportunités de networking et d'apprentissage.</p>
+                <p>Je réside à Casablanca, la capitale économique du Maroc. Cette métropole dynamique m'offre un environnement stimulant où je peux enrichir mes connaissances et rester connecté aux dernières tendances technologiques.</p>
             </div>
-            <div class="info-card fade-in delay-4">
-                <h3>✨ Philosophie & Motivation</h3>
-                <p>Je suis une personne <strong>curieuse, motivée et déterminée</strong>. J'aime me fixer des objectifs ambitieux et travailler avec acharnement pour les atteindre. Que ce soit dans mes projets académiques ou personnels, je m'investis toujours pleinement avec rigueur, passion et professionnalisme. Ma devise : "L'apprentissage est un voyage sans fin". Mon but est de continuer à évoluer chaque jour, d'acquérir de nouvelles compétences et de contribuer positivement à la société grâce à mes connaissances.</p>
-            </div>
-            <div class="info-card fade-in delay-5">
+            <div class="info-card">
                 <h3>🎮 Gaming & Développement des Compétences</h3>
-                <p>Je suis un joueur passionné de <strong>Valorant</strong>, un jeu de tir tactique compétitif qui demande réflexion, stratégie et coordination d'équipe. Ce jeu m'aide à développer ma <strong>réactivité</strong>, ma <strong>pensée stratégique</strong>, ma <strong>gestion du stress</strong> et mes capacités de <strong>travail en équipe</strong> - des compétences directement transférables dans le monde professionnel et académique. Le gaming m'enseigne également la persévérance et l'amélioration continue.</p>
+                <p>Amateur de Valorant, ce jeu stimule ma réflexion stratégique, ma réactivité et mon esprit d'équipe - des qualités essentielles dans le monde professionnel.</p>
             </div>
         </div>
     </section>
 
     <section id="skills">
-        <div class="container">
-            <h2>💡 Mes Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-category fade-in delay-1">
-                    <h3>📐 Mathématiques</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Analyse Mathématique</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
+        <div class="section-header">
+            <h2>Mes Compétences</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>📐 Mathématiques</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Analyse Mathématique</span>
+                        <span class="skill-level">90%</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Algèbre & Structures</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Statistiques & Probabilités</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Géométrie & Topologie</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
                     </div>
                 </div>
-
-                <div class="skill-category fade-in delay-2">
-                    <h3>💻 Programmation</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Algèbre & Structures</span>
+                        <span class="skill-level">85%</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>JavaScript</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>HTML & CSS</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Algorithmique</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
                     </div>
                 </div>
-
-                <div class="skill-category fade-in delay-3">
-                    <h3>🛠️ Outils & Technologies</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Git & GitHub</span>
-                            <span>70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
-                        </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Statistiques</span>
+                        <span class="skill-level">80%</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>VS Code</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>LaTeX</span>
-                            <span>65%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 65%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Jupyter Notebook</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="skill-category fade-in delay-4">
-                    <h3>🗣️ Langues</h3>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Arabe (Maternel)</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 100%"></div>
-                        </div>
+            <div class="skill-category">
+                <h3>💻 Programmation</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-level">85%</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Français</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Anglais</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-level">75%</span>
                     </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Darija (Marocain)</span>
-                            <span>100%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 100%"></div>
-                        </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">HTML & CSS</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🗣️ Langues</h3>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Arabe</span>
+                        <span class="skill-level">100%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Français</span>
+                        <span class="skill-level">90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span class="skill-name">Anglais</span>
+                        <span class="skill-level">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
                     </div>
                 </div>
             </div>
@@ -1138,394 +1022,615 @@
     </section>
 
     <section id="modules">
-        <div class="container">
-            <h2>📚 Mes Modules d'Études</h2>
-            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Voici un aperçu détaillé de tous les modules que j'étudie durant ma formation à l'ESEF El Jadida, répartis sur 6 semestres.</p>
-            <div class="modules-grid">
-                <div class="semester fade-in delay-1">
-                    <h3>📚 Semestre 1 (S1)</h3>
-                    <div class="module">
-                        <div class="module-title">Analyse 1</div>
-                        <div class="module-desc">Suites numériques et fonctions</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Algèbre 1</div>
-                        <div class="module-desc">Généralités et arithmétique dans ℤ</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Algèbre 2</div>
-                        <div class="module-desc">Structures, polynômes et fractions rationnelles</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Statistique Descriptive</div>
-                        <div class="module-desc">Introduction à la probabilité</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Informatique 1</div>
-                        <div class="module-desc">Introduction à l'informatique</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Méthodologie du Travail</div>
-                        <div class="module-desc">Universitaire, Digital Skills, Langues</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Thermodynamique</div>
-                        <div class="module-desc">Principes et applications</div>
-                    </div>
+        <div class="section-header">
+            <h2>Mes Modules d'Études</h2>
+            <p>Aperçu détaillé des modules répartis sur 6 semestres</p>
+        </div>
+        <div class="modules-grid">
+            <div class="semester-card">
+                <h3>📚 Semestre 1</h3>
+                <div class="module-item">
+                    <div class="module-title">Analyse 1</div>
+                    <div class="module-desc">Suites numériques et fonctions</div>
                 </div>
-
-                <div class="semester fade-in delay-2">
-                    <h3>📖 Semestre 2 (S2)</h3>
-                    <div class="module">
-                        <div class="module-title">Analyse 2 : Intégration</div>
-                        <div class="module-desc">Calcul intégral et applications</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Algèbre 3</div>
-                        <div class="module-desc">Espaces Vectoriels, Matrices et Déterminants</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Analyse 3</div>
-                        <div class="module-desc">Formules de Taylor, Développement Limité et Applications</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Informatique 2</div>
-                        <div class="module-desc">Algorithmes et Programmation</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Digital Skills en Éducation</div>
-                        <div class="module-desc">Langue 1</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Électrostatique et Magnétostatique</div>
-                        <div class="module-desc">Physique électromagnétique</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Optique</div>
-                        <div class="module-desc">Optique géométrique et ondulatoire</div>
-                    </div>
+                <div class="module-item">
+                    <div class="module-title">Algèbre 1</div>
+                    <div class="module-desc">Généralités et arithmétique dans ℤ</div>
                 </div>
-
-                <div class="semester fade-in delay-3">
-                    <h3>📕 Semestre 3 (S3)</h3>
-                    <div class="module">
-                        <div class="module-title">Analyse 4</div>
-                        <div class="module-desc">Séries numériques, Suites et séries de fonctions</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Analyse 5</div>
-                        <div class="module-desc">Fonctions de plusieurs variables</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Algèbre 4</div>
-                        <div class="module-desc">Réduction des endomorphismes, applications</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Sciences de l'Éducation</div>
-                        <div class="module-desc">Théories et pratiques pédagogiques</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Informatique 3</div>
-                        <div class="module-desc">Algorithmique et Programmation avancée</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Développement Personnel</div>
-                        <div class="module-desc">Langue 2</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Mécanique</div>
-                        <div class="module-desc">Mécanique du point matériel et du solide</div>
-                    </div>
+                <div class="module-item">
+                    <div class="module-title">Algèbre 2</div>
+                    <div class="module-desc">Structures, polynômes et fractions</div>
                 </div>
-
-                <div class="semester fade-in delay-4">
-                    <h3>📙 Semestre 4 (S4)</h3>
-                    <div class="module">
-                        <div class="module-title">Analyse 6</div>
-                        <div class="module-desc">Calcul intégral et formes différentielles</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Algèbre 5</div>
-                        <div class="module-desc">Dualité, espaces Euclidiens, espaces Hermitiens</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Analyse Numérique</div>
-                        <div class="module-desc">Méthodes numériques et calcul scientifique</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Informatique 4</div>
-                        <div class="module-desc">Algorithmique et structure des données</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Histoire et Patrimoine du Maroc</div>
-                        <div class="module-desc">Art et Culture, Langue 3</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Approches et Méthodes Didactiques</div>
-                        <div class="module-desc">Pédagogie des mathématiques</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Variables Aléatoires et Lois</div>
-                        <div class="module-desc">Introduction à la Statistique Inférentielle</div>
-                    </div>
+                <div class="module-item">
+                    <div class="module-title">Statistique Descriptive</div>
+                    <div class="module-desc">Introduction à la probabilité</div>
                 </div>
-
-                <div class="semester fade-in delay-5">
-                    <h3>📕 Semestre 5 (S5)</h3>
-                    <div class="module">
-                        <div class="module-title">Mesure et Intégration</div>
-                        <div class="module-desc">Théorie de la mesure de Lebesgue</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Topologie Générale</div>
-                        <div class="module-desc">Espaces topologiques et applications</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Algèbre 6 : Structures Algébriques</div>
-                        <div class="module-desc">Groupes, anneaux et corps</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Didactique des Mathématiques</div>
-                        <div class="module-desc">Enseignement et pédagogie</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Déontologie du Métier</div>
-                        <div class="module-desc">Législation scolaire</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Droit, Civisme et Citoyenneté</div>
-                        <div class="module-desc">Langue 5</div>
-                    </div>
+                <div class="module-item">
+                    <div class="module-title">Informatique 1</div>
+                    <div class="module-desc">Introduction à l'informatique</div>
                 </div>
+            </div>
 
-                <div class="semester fade-in delay-6">
-                    <h3>📗 Semestre 6 (S6)</h3>
-                    <div class="module">
-                        <div class="module-title">Calcul Différentiel</div>
-                        <div class="module-desc">Dérivées et applications</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Algèbre et Géométrie</div>
-                        <div class="module-desc">Géométrie analytique et transformations</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Analyse Complexe</div>
-                        <div class="module-desc">Fonctions holomorphes et théorèmes</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Docimologie et Évaluation</div>
-                        <div class="module-desc">Techniques d'évaluation pédagogique</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Langue 6</div>
-                        <div class="module-desc">Communication professionnelle</div>
-                    </div>
-                    <div class="module">
-                        <div class="module-title">Histoire et Épistémologie</div>
-                        <div class="module-desc">Des Mathématiques et approche multidisciplinaire</div>
-                    </div>
+            <div class="semester-card">
+                <h3>📖 Semestre 2</h3>
+                <div class="module-item">
+                    <div class="module-title">Analyse 2 : Intégration</div>
+                    <div class="module-desc">Calcul intégral et applications</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Algèbre 3</div>
+                    <div class="module-desc">Espaces Vectoriels, Matrices</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Analyse 3</div>
+                    <div class="module-desc">Formules de Taylor, DL</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Informatique 2</div>
+                    <div class="module-desc">Algorithmes et Programmation</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Optique</div>
+                    <div class="module-desc">Optique géométrique et ondulatoire</div>
+                </div>
+            </div>
+
+            <div class="semester-card">
+                <h3>📕 Semestre 3</h3>
+                <div class="module-item">
+                    <div class="module-title">Analyse 4</div>
+                    <div class="module-desc">Séries numériques et de fonctions</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Analyse 5</div>
+                    <div class="module-desc">Fonctions de plusieurs variables</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Algèbre 4</div>
+                    <div class="module-desc">Réduction des endomorphismes</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Sciences de l'Éducation</div>
+                    <div class="module-desc">Théories pédagogiques</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Mécanique</div>
+                    <div class="module-desc">Mécanique du point matériel</div>
+                </div>
+            </div>
+
+            <div class="semester-card">
+                <h3>📙 Semestre 4</h3>
+                <div class="module-item">
+                    <div class="module-title">Analyse 6</div>
+                    <div class="module-desc">Calcul intégral et formes</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Algèbre 5</div>
+                    <div class="module-desc">Espaces Euclidiens et Hermitiens</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Analyse Numérique</div>
+                    <div class="module-desc">Méthodes numériques</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Approches Didactiques</div>
+                    <div class="module-desc">Pédagogie des mathématiques</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Variables Aléatoires</div>
+                    <div class="module-desc">Statistique Inférentielle</div>
+                </div>
+            </div>
+
+            <div class="semester-card">
+                <h3>📘 Semestre 5</h3>
+                <div class="module-item">
+                    <div class="module-title">Mesure et Intégration</div>
+                    <div class="module-desc">Théorie de Lebesgue</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Topologie Générale</div>
+                    <div class="module-desc">Espaces topologiques</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Structures Algébriques</div>
+                    <div class="module-desc">Groupes, anneaux et corps</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Didactique des Maths</div>
+                    <div class="module-desc">Enseignement et pédagogie</div>
+                </div>
+            </div>
+
+            <div class="semester-card">
+                <h3>📗 Semestre 6</h3>
+                <div class="module-item">
+                    <div class="module-title">Calcul Différentiel</div>
+                    <div class="module-desc">Dérivées et applications</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Algèbre et Géométrie</div>
+                    <div class="module-desc">Géométrie analytique</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Analyse Complexe</div>
+                    <div class="module-desc">Fonctions holomorphes</div>
+                </div>
+                <div class="module-item">
+                    <div class="module-title">Docimologie</div>
+                    <div class="module-desc">Techniques d'évaluation</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <div class="container">
-            <h2>💼 Mes Projets</h2>
-            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Découvrez quelques-uns des projets sur lesquels j'ai travaillé ou que je développe actuellement.</p>
-            <div class="projects-grid">
-                <div class="project-card fade-in delay-1">
-                    <div class="project-image">🧮</div>
-                    <div class="project-content">
-                        <h3><a href="Calculatrice_Scientifique.html">Calculatrice Scientifique</a></h3>
-                        <p>Application web interactive pour effectuer des calculs mathématiques complexes avec interface utilisateur intuitive et moderne.</p>
-                        <div class="project-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">Math.js</span>
-                        </div>
+        <div class="section-header">
+            <h2>Mes Projets</h2>
+            <p>Découvrez mes réalisations et expérimentations techniques</p>
+        </div>
+        <div class="projects-grid">
+            <a href="Calculatrice_Scientifique.html" class="project-card">
+                <div class="project-icon">🧮</div>
+                <div class="project-body">
+                    <h3>Calculatrice Scientifique</h3>
+                    <p>Application web interactive pour des calculs mathématiques complexes avec une interface utilisateur moderne et intuitive.</p>
+                    <div class="tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Math.js</span>
                     </div>
                 </div>
+            </a>
 
-                <div class="project-card fade-in delay-2">
-                    <div class="project-image">📊</div>
-                    <div class="project-content">
-                        <h3>Visualisation de Données</h3>
-                        <p>Outil de visualisation statistique pour analyser et présenter des données mathématiques de manière graphique et interactive.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Matplotlib</span>
-                            <span class="tag">NumPy</span>
-                        </div>
+            <a href="#" class="project-card">
+                <div class="project-icon">📊</div>
+                <div class="project-body">
+                    <h3>Visualisation de Données</h3>
+                    <p>Outil de visualisation statistique pour analyser et présenter des données de manière interactive et graphique.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Matplotlib</span>
+                        <span class="tag">NumPy</span>
                     </div>
                 </div>
+            </a>
 
-                <div class="project-card fade-in delay-3">
-                    <div class="project-image">🎓</div>
-                    <div class="project-content">
-                        <h3>Plateforme E-Learning</h3>
-                        <p>Site web éducatif pour aider les étudiants à apprendre les mathématiques avec des cours, exercices et quiz interactifs.</p>
-                        <div class="project-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                        </div>
+            <a href="#" class="project-card">
+                <div class="project-icon">🎓</div>
+                <div class="project-body">
+                    <h3>Plateforme E-Learning</h3>
+                    <p>Site éducatif avec cours, exercices et quiz interactifs pour l'apprentissage des mathématiques en ligne.</p>
+                    <div class="tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
                     </div>
                 </div>
+            </a>
 
-                <div class="project-card fade-in delay-4">
-                    <div class="project-image">🤖</div>
-                    <div class="project-content">
-                        <h3>Algorithmes de Tri</h3>
-                        <p>Implémentation et visualisation de différents algorithmes de tri avec comparaison de performances et complexité temporelle.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Algorithmes</span>
-                            <span class="tag">Animation</span>
-                        </div>
+            <a href="#" class="project-card">
+                <div class="project-icon">🤖</div>
+                <div class="project-body">
+                    <h3>Algorithmes de Tri</h3>
+                    <p>Implémentation et visualisation interactive d'algorithmes de tri avec analyse comparative des performances.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Algorithmes</span>
+                        <span class="tag">Animation</span>
                     </div>
                 </div>
+            </a>
 
-                <div class="project-card fade-in delay-5">
-                    <div class="project-image">📱</div>
-                    <div class="project-content">
-                        <h3>Portfolio Personnel</h3>
-                        <p>Ce site web moderne et responsive que vous visitez actuellement, conçu pour présenter mon parcours et mes compétences.</p>
-                        <div class="project-tags">
-                            <span class="tag">HTML/CSS</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">Design</span>
-                        </div>
+            <a href="#" class="project-card">
+                <div class="project-icon">📱</div>
+                <div class="project-body">
+                    <h3>Portfolio Personnel</h3>
+                    <p>Site web moderne et responsive que vous visitez actuellement, conçu pour présenter mes compétences et projets.</p>
+                    <div class="tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Design</span>
                     </div>
                 </div>
+            </a>
 
-                <div class="project-card fade-in delay-6">
-                    <div class="project-image">🎯</div>
-                    <div class="project-content">
-                        <h3>Résolveur d'Équations</h3>
-                        <p>Application pour résoudre automatiquement différents types d'équations mathématiques avec affichage détaillé des étapes.</p>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">SymPy</span>
-                            <span class="tag">Interface</span>
-                        </div>
+            <a href="#" class="project-card">
+                <div class="project-icon">🎯</div>
+                <div class="project-body">
+                    <h3>Résolveur d'Équations</h3>
+                    <p>Application intelligente pour résoudre différents types d'équations mathématiques avec détail des étapes.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SymPy</span>
+                        <span class="tag">Interface</span>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
     <section id="interests">
-        <div class="container">
-            <h2>🎯 Centres d'Intérêt</h2>
-            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Mes passions et activités qui m'inspirent au quotidien et contribuent à mon développement personnel.</p>
-            <div class="interests">
-                <div class="interest-tag">💻 Programmation</div>
-                <div class="interest-tag">🎮 Valorant</div>
-                <div class="interest-tag">📚 Apprentissage Continu</div>
-                <div class="interest-tag">🔬 Technologies Émergentes</div>
-                <div class="interest-tag">🧮 Mathématiques</div>
-                <div class="interest-tag">🎯 Défis Intellectuels</div>
-                <div class="interest-tag">🌟 Innovation</div>
-                <div class="interest-tag">♟️ Stratégie & Tactique</div>
-                <div class="interest-tag">🤖 Intelligence Artificielle</div>
-                <div class="interest-tag">🎨 Design & UI/UX</div>
-                <div class="interest-tag">📖 Lecture Scientifique</div>
-                <div class="interest-tag">🏆 Compétitions</div>
-                <div class="interest-tag">👥 Travail d'Équipe</div>
-                <div class="interest-tag">🎬 Cinéma & Séries</div>
-                <div class="interest-tag">🎵 Musique</div>
-                <div class="interest-tag">✈️ Découverte Culturelle</div>
-            </div>
+        <div class="section-header">
+            <h2>Centres d'Intérêt</h2>
+            <p>Mes passions qui m'inspirent au quotidien</p>
+        </div>
+        <div class="interests-grid">
+            <div class="interest-tag">💻 Programmation</div>
+            <div class="interest-tag">🎮 Valorant</div>
+            <div class="interest-tag">📚 Apprentissage Continu</div>
+            <div class="interest-tag">🔬 Technologies Émergentes</div>
+            <div class="interest-tag">🧮 Mathématiques</div>
+            <div class="interest-tag">🎯 Défis Intellectuels</div>
+            <div class="interest-tag">🌟 Innovation</div>
+            <div class="interest-tag">♟️ Stratégie & Tactique</div>
+            <div class="interest-tag">🤖 Intelligence Artificielle</div>
+            <div class="interest-tag">🎨 Design & UI/UX</div>
+            <div class="interest-tag">📖 Lecture Scientifique</div>
+            <div class="interest-tag">🏆 Compétitions</div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="container">
-            <h2>📧 Me Contacter</h2>
-            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">N'hésitez pas à me contacter pour toute collaboration, question ou simplement pour échanger !</p>
-            <div class="contact-grid">
-                <div class="contact-card fade-in delay-1">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>irhil911@gmail.com</p>
-                </div>
-                <div class="contact-card fade-in delay-2">
-                    <div class="contact-icon">📱</div>
-                    <h3>Téléphone</h3>
-                    <p>+212 6XX XXX XXX</p>
-                </div>
-                <div class="contact-card fade-in delay-3">
-                    <div class="contact-icon">📍</div>
-                    <h3>Localisation</h3>
-                    <p>Casablanca, Maroc</p>
-                </div>
-                <div class="contact-card fade-in delay-4">
-                    <div class="contact-icon">💼</div>
-                    <h3>LinkedIn</h3>
-                    <p>linkedin.com/in/walidirhil</p>
-                </div>
+        <div class="section-header">
+            <h2>Me Contacter</h2>
+            <p>N'hésitez pas à me contacter pour toute collaboration</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <p>irhil911@gmail.com</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h3>Téléphone</h3>
+                <p>+212 6XX XXX XXX</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Localisation</h3>
+                <p>Casablanca, Maroc</p>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <h3>LinkedIn</h3>
+                <p>linkedin.com/in/walidirhil</p>
             </div>
         </div>
     </section>
 
-    <div class="scroll-indicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-        ↑
-    </div>
-
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Walid Irhil | Tous droits réservés</p>
-                <p>Étudiant ESEF El Jadida | Casablanca, Maroc 🇲🇦</p>
-                <div class="footer-links">
-                    <a href="#hero">Accueil</a>
-                    <a href="#about">À Propos</a>
-                    <a href="#skills">Compétences</a>
-                    <a href="#modules">Modules</a>
-                    <a href="#projects">Projets</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Conçu avec ❤️ et beaucoup de ☕</p>
-            </div>
+        <p>&copy; 2025 Walid Irhil | Tous droits réservés</p>
+        <div class="footer-links">
+            <a href="#hero">Accueil</a>
+            <a href="#about">À Propos</a>
+            <a href="#skills">Compétences</a>
+            <a href="#modules">Modules</a>
+            <a href="#projects">Projets</a>
+            <a href="#contact">Contact</a>
         </div>
+        <p style="margin-top: 1rem;">Conçu avec ❤️ à Casablanca 🇲🇦</p>
     </footer>
 
-    <script>
-        // Attendre que le DOM soit complètement chargé
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggleBtn = document.getElementById("theme-toggle");
-            const body = document.body;
+    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
 
-            // Charger le thème sauvegardé depuis la mémoire
-            let currentTheme = 'light';
-            
-            // Fonction pour appliquer le thème
-            function applyTheme(theme) {
-                if (theme === 'dark') {
-                    body.classList.add("dark-mode");
-                    toggleBtn.textContent = "☀️ Mode clair";
-                    currentTheme = 'dark';
-                } else {
-                    body.classList.remove("dark-mode");
-                    toggleBtn.textContent = "🌙 Mode sombre";
-                    currentTheme = 'light';
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        let isDark = false;
+
+        themeToggle.addEventListener('click', () => {
+            isDark = !isDark;
+            body.classList.toggle('dark');
+            themeToggle.textContent = isDark ? '☀️' : '🌙';
+        });
+
+        // Système de traduction multilingue
+        const translations = {
+            fr: {
+                nav: {
+                    home: 'Accueil',
+                    about: 'À Propos',
+                    skills: 'Compétences',
+                    modules: 'Modules',
+                    projects: 'Projets',
+                    contact: 'Contact'
+                },
+                hero: {
+                    name: 'Walid Irhil',
+                    subtitle: 'Étudiant en Mathématiques | Développeur Passionné',
+                    description: 'Étudiant en première année à l\'ESEF El Jadida, je me spécialise dans l\'enseignement des mathématiques tout en cultivant une passion pour la programmation et les technologies émergentes.',
+                    btnContact: 'Me Contacter',
+                    btnStudies: 'Voir mes Études',
+                    school: 'ESEF El Jadida'
+                },
+                about: {
+                    title: 'Mon Parcours en Chiffres',
+                    statsLabels: ['Année d\'Études', 'Modules Étudiés', 'Semestres au Total', 'Motivation'],
+                    aboutTitle: 'À Propos de Moi',
+                    card1Title: 'Formation Académique',
+                    card1Text: 'Actuellement en première année à l\'École Supérieure de l\'Éducation et de la Formation (ESEF) à El Jadida, je me spécialise dans l\'enseignement des mathématiques. J\'étudie des domaines variés comme l\'analyse, l\'algèbre, la topologie et les statistiques.',
+                    card2Title: 'Passion pour la Programmation',
+                    card2Text: 'Au-delà des mathématiques, je suis profondément passionné par la programmation et le développement informatique. Je maîtrise plusieurs langages et frameworks, ce qui me permet d\'avoir une approche unique dans la résolution de problèmes.',
+                    card3Title: 'Environnement & Localisation',
+                    card3Text: 'Je réside à Casablanca, la capitale économique du Maroc. Cette métropole dynamique m\'offre un environnement stimulant où je peux enrichir mes connaissances et rester connecté aux dernières tendances technologiques.',
+                    card4Title: 'Gaming & Développement des Compétences',
+                    card4Text: 'Amateur de Valorant, ce jeu stimule ma réflexion stratégique, ma réactivité et mon esprit d\'équipe - des qualités essentielles dans le monde professionnel.'
+                },
+                skills: {
+                    title: 'Mes Compétences',
+                    math: 'Mathématiques',
+                    programming: 'Programmation',
+                    languages: 'Langues'
+                },
+                modules: {
+                    title: 'Mes Modules d\'Études',
+                    subtitle: 'Aperçu détaillé des modules répartis sur 6 semestres',
+                    semester: 'Semestre'
+                },
+                projects: {
+                    title: 'Mes Projets',
+                    subtitle: 'Découvrez mes réalisations et expérimentations techniques'
+                },
+                interests: {
+                    title: 'Centres d\'Intérêt',
+                    subtitle: 'Mes passions qui m\'inspirent au quotidien'
+                },
+                contact: {
+                    title: 'Me Contacter',
+                    subtitle: 'N\'hésitez pas à me contacter pour toute collaboration',
+                    email: 'Email',
+                    phone: 'Téléphone',
+                    location: 'Localisation'
+                },
+                footer: {
+                    rights: 'Tous droits réservés',
+                    made: 'Conçu avec',
+                    in: 'à Casablanca'
+                }
+            },
+            ar: {
+                nav: {
+                    home: 'الرئيسية',
+                    about: 'نبذة عني',
+                    skills: 'المهارات',
+                    modules: 'الوحدات',
+                    projects: 'المشاريع',
+                    contact: 'تواصل معي'
+                },
+                hero: {
+                    name: 'وليد إغل',
+                    subtitle: 'طالب في الرياضيات | مطور شغوف',
+                    description: 'طالب في السنة الأولى بالمدرسة العليا للتربية والتكوين بالجديدة، أتخصص في تدريس الرياضيات مع شغف كبير بالبرمجة والتقنيات الناشئة.',
+                    btnContact: 'تواصل معي',
+                    btnStudies: 'شاهد دراستي',
+                    school: 'المدرسة العليا للتربية والتكوين - الجديدة'
+                },
+                about: {
+                    title: 'مسيرتي بالأرقام',
+                    statsLabels: ['سنة الدراسة', 'الوحدات المدروسة', 'إجمالي الفصول', 'التحفيز'],
+                    aboutTitle: 'نبذة عني',
+                    card1Title: 'التكوين الأكاديمي',
+                    card1Text: 'حاليًا في السنة الأولى بالمدرسة العليا للتربية والتكوين بالجديدة، أتخصص في تدريس الرياضيات. أدرس مجالات متنوعة مثل التحليل الرياضي، الجبر، الطوبولوجيا والإحصاء التطبيقي.',
+                    card2Title: 'شغف بالبرمجة',
+                    card2Text: 'بالإضافة إلى الرياضيات، أنا شغوف جدًا بالبرمجة وتطوير البرمجيات. أتقن عدة لغات برمجة وأطر عمل حديثة، مما يمنحني نهجًا فريدًا ومتميزًا في حل المشكلات التقنية.',
+                    card3Title: 'البيئة والموقع',
+                    card3Text: 'أقيم في الدار البيضاء، العاصمة الاقتصادية للمغرب. هذه المدينة الديناميكية توفر لي بيئة محفزة حيث يمكنني إثراء معرفتي والبقاء على اتصال دائم بأحدث الاتجاهات التكنولوجية العالمية.',
+                    card4Title: 'الألعاب وتطوير المهارات',
+                    card4Text: 'من هواة لعبة Valorant، هذه اللعبة تحفز تفكيري الاستراتيجي، سرعة رد فعلي وروح العمل الجماعي - مهارات أساسية وضرورية في العالم المهني الحديث.'
+                },
+                skills: {
+                    title: 'مهاراتي',
+                    math: 'الرياضيات',
+                    programming: 'البرمجة',
+                    languages: 'اللغات'
+                },
+                modules: {
+                    title: 'وحدات دراستي',
+                    subtitle: 'نظرة تفصيلية شاملة على الوحدات الدراسية موزعة على 6 فصول',
+                    semester: 'الفصل'
+                },
+                projects: {
+                    title: 'مشاريعي',
+                    subtitle: 'اكتشف إنجازاتي وتجاربي التقنية المتنوعة'
+                },
+                interests: {
+                    title: 'مراكز الاهتمام',
+                    subtitle: 'شغفي الذي يلهمني كل يوم'
+                },
+                contact: {
+                    title: 'تواصل معي',
+                    subtitle: 'لا تتردد في التواصل معي لأي تعاون أو استفسار',
+                    email: 'البريد الإلكتروني',
+                    phone: 'الهاتف',
+                    location: 'الموقع'
+                },
+                footer: {
+                    rights: 'جميع الحقوق محفوظة',
+                    made: 'صُمم بكل',
+                    in: 'في الدار البيضاء'
+                }
+            },
+            en: {
+                nav: {
+                    home: 'Home',
+                    about: 'About',
+                    skills: 'Skills',
+                    modules: 'Modules',
+                    projects: 'Projects',
+                    contact: 'Contact'
+                },
+                hero: {
+                    name: 'Walid Irhil',
+                    subtitle: 'Mathematics Student | Passionate Developer',
+                    description: 'First-year student at ESEF El Jadida, specializing in mathematics education while cultivating a passion for programming and emerging technologies.',
+                    btnContact: 'Contact Me',
+                    btnStudies: 'View My Studies',
+                    school: 'ESEF El Jadida'
+                },
+                about: {
+                    title: 'My Journey in Numbers',
+                    statsLabels: ['Year of Study', 'Modules Studied', 'Total Semesters', 'Motivation'],
+                    aboutTitle: 'About Me',
+                    card1Title: 'Academic Training',
+                    card1Text: 'Currently in my first year at the Higher School of Education and Training (ESEF) in El Jadida, I specialize in mathematics education. I study various fields such as analysis, algebra, topology and statistics.',
+                    card2Title: 'Passion for Programming',
+                    card2Text: 'Beyond mathematics, I am deeply passionate about programming and software development. I master several programming languages and frameworks, which gives me a unique approach to problem-solving.',
+                    card3Title: 'Environment & Location',
+                    card3Text: 'I live in Casablanca, the economic capital of Morocco. This dynamic metropolis offers me a stimulating environment where I can enrich my knowledge and stay connected to the latest technological trends.',
+                    card4Title: 'Gaming & Skills Development',
+                    card4Text: 'As a Valorant enthusiast, this game stimulates my strategic thinking, reactivity and team spirit - essential qualities in the professional world.'
+                },
+                skills: {
+                    title: 'My Skills',
+                    math: 'Mathematics',
+                    programming: 'Programming',
+                    languages: 'Languages'
+                },
+                modules: {
+                    title: 'My Study Modules',
+                    subtitle: 'Detailed overview of modules spread over 6 semesters',
+                    semester: 'Semester'
+                },
+                projects: {
+                    title: 'My Projects',
+                    subtitle: 'Discover my achievements and technical experiments'
+                },
+                interests: {
+                    title: 'Interests',
+                    subtitle: 'My passions that inspire me daily'
+                },
+                contact: {
+                    title: 'Contact Me',
+                    subtitle: 'Feel free to contact me for any collaboration',
+                    email: 'Email',
+                    phone: 'Phone',
+                    location: 'Location'
+                },
+                footer: {
+                    rights: 'All rights reserved',
+                    made: 'Made with',
+                    in: 'in Casablanca'
                 }
             }
+        };
 
-            // Appliquer le thème par défaut
-            applyTheme(currentTheme);
+        let currentLang = 'fr';
 
-            // Basculer le thème quand on clique sur le bouton
-            toggleBtn.addEventListener("click", function() {
-                if (currentTheme === 'light') {
-                    applyTheme('dark');
-                } else {
-                    applyTheme('light');
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            // Direction du texte pour l'arabe
+            if (lang === 'ar') {
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                document.body.setAttribute('dir', 'ltr');
+            }
+
+            // Navigation
+            document.querySelectorAll('nav a').forEach((link, index) => {
+                const keys = ['home', 'about', 'skills', 'modules', 'projects', 'contact'];
+                link.textContent = t.nav[keys[index]];
+            });
+
+            // Hero section
+            document.querySelector('.hero-text h1').textContent = t.hero.name;
+            document.querySelector('.hero-text .subtitle').textContent = t.hero.subtitle;
+            document.querySelector('.hero-text p').textContent = t.hero.description;
+            document.querySelector('.btn-primary').textContent = t.hero.btnContact;
+            document.querySelector('.btn-secondary').textContent = t.hero.btnStudies;
+            document.querySelector('.profile-card h3').textContent = t.hero.name;
+            document.querySelector('.profile-card p').textContent = t.hero.school;
+
+            // About section
+            document.querySelector('#about .section-header h2').textContent = t.about.title;
+            const statLabels = document.querySelectorAll('.stat-label');
+            statLabels.forEach((label, index) => {
+                label.textContent = t.about.statsLabels[index];
+            });
+
+            const aboutHeaders = document.querySelectorAll('#about .section-header');
+            if (aboutHeaders[1]) {
+                aboutHeaders[1].querySelector('h2').textContent = t.about.aboutTitle;
+            }
+
+            const infoCards = document.querySelectorAll('.info-card');
+            const cardTitles = ['card1Title', 'card2Title', 'card3Title', 'card4Title'];
+            const cardTexts = ['card1Text', 'card2Text', 'card3Text', 'card4Text'];
+            infoCards.forEach((card, index) => {
+                card.querySelector('h3').innerHTML = card.querySelector('h3').innerHTML.split(' ')[0] + ' ' + t.about[cardTitles[index]];
+                card.querySelector('p').textContent = t.about[cardTexts[index]];
+            });
+
+            // Skills section
+            document.querySelector('#skills .section-header h2').textContent = t.skills.title;
+            const skillCategories = document.querySelectorAll('.skill-category h3');
+            const skillKeys = ['math', 'programming', 'languages'];
+            skillCategories.forEach((category, index) => {
+                const icon = category.innerHTML.split(' ')[0];
+                category.innerHTML = icon + ' ' + t.skills[skillKeys[index]];
+            });
+
+            // Modules section
+            document.querySelector('#modules .section-header h2').textContent = t.modules.title;
+            document.querySelector('#modules .section-header p').textContent = t.modules.subtitle;
+
+            // Projects section
+            document.querySelector('#projects .section-header h2').textContent = t.projects.title;
+            document.querySelector('#projects .section-header p').textContent = t.projects.subtitle;
+
+            // Interests section
+            document.querySelector('#interests .section-header h2').textContent = t.interests.title;
+            document.querySelector('#interests .section-header p').textContent = t.interests.subtitle;
+
+            // Contact section
+            document.querySelector('#contact .section-header h2').textContent = t.contact.title;
+            document.querySelector('#contact .section-header p').textContent = t.contact.subtitle;
+            const contactCards = document.querySelectorAll('.contact-card h3');
+            const contactKeys = ['email', 'phone', 'location', 'LinkedIn'];
+            contactCards.forEach((card, index) => {
+                if (index < 3) {
+                    card.textContent = t.contact[contactKeys[index].toLowerCase()];
+                }
+            });
+
+            // Footer
+            const footerText = document.querySelector('footer p');
+            footerText.innerHTML = `&copy; 2025 ${t.hero.name} | ${t.footer.rights}`;
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            footerLinks.forEach((link, index) => {
+                const keys = ['home', 'about', 'skills', 'modules', 'projects', 'contact'];
+                link.textContent = t.nav[keys[index]];
+            });
+            const footerMade = document.querySelectorAll('footer p')[2];
+            footerMade.innerHTML = `${t.footer.made} ❤️ ${t.footer.in} 🇲🇦`;
+        }
+
+        // Gestion du sélecteur de langue
+        const langButtons = document.querySelectorAll('.lang-btn');
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                langButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const selectedLang = btn.dataset.lang;
+                changeLanguage(selectedLang);
+            });
+        });
+
+        // Smooth scroll pour les liens
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
     </script>
 </body>
 </html>
-                
