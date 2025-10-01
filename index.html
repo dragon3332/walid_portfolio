@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walid Irhil - Étudiant en Mathématiques & Développeur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(102, 126, 234, 0.8);
+            }
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.5rem 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out;
+            transition: background 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.3rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0.5rem 15px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        #theme-toggle {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: none;
+            background: #667eea;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .hero {
+            background: white;
+            margin: 3rem auto;
+            padding: 4rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+            transition: background 0.3s ease;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            animation: float 3s ease-in-out infinite;
+            font-family: 'Space Grotesk', sans-serif;
+            position: relative;
+        }
+
+        .profile-img::after {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50%;
+            animation: rotate 10s linear infinite;
+            border-top-color: #667eea;
+            border-right-color: transparent;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+            animation: glow 1s ease-in-out infinite;
+        }
+
+        .hero-text h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1.05rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        section {
+            background: white;
+            margin: 3rem auto;
+            padding: 3.5rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+            border-left: 5px solid #667eea;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .info-card:hover::before {
+            left: 100%;
+        }
+
+        .info-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .info-card h3 {
+            color: #764ba2;
+            margin-bottom: 0.8rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .info-card p {
+            color: #555;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-top: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .skill-bar {
+            height: 12px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 1.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: slideInRight 2s infinite;
+        }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .semester {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.4s ease;
+        }
+
+        .semester:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .semester h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 1.7rem;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .module {
+            background: white;
+            padding: 1.3rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .module:hover {
+            transform: translateX(8px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+            border-left-color: #764ba2;
+        }
+
+        .module-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .module-desc {
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .project-image {
+            height: 180px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            color: #667eea;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-content p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            transition: color 0.3s ease;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .interest-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 200% 200%;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .interest-tag:hover {
+            animation: pulse 0.6s ease-in-out;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            background-position: 100% 50%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            color: #667eea;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card p {
+            color: #666;
+            font-size: 1.05rem;
+            transition: color 0.3s ease;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+            font-size: 1.1rem;
+            font-weight: 300;
+        }
+
+        .footer-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+            animation: float 2s ease-in-out infinite;
+            z-index: 999;
+        }
+
+        .scroll-indicator:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.7);
+        }
+
+        /* Mode Sombre */
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+            color: #f1f1f1;
+        }
+
+        body.dark-mode header {
+            background: rgba(20, 20, 20, 0.95);
+        }
+
+        body.dark-mode .subtitle {
+            color: #aaa;
+        }
+
+        body.dark-mode nav a {
+            color: #9a8dff;
+        }
+
+        body.dark-mode .hero,
+        body.dark-mode section {
+            background: #1f1f1f;
+            color: #f1f1f1;
+        }
+
+        body.dark-mode .hero-text h2,
+        body.dark-mode h2,
+        body.dark-mode .skill-category h3,
+        body.dark-mode .semester h3,
+        body.dark-mode .project-content h3,
+        body.dark-mode .contact-card h3,
+        body.dark-mode .info-card h3 {
+            color: #9a8dff;
+        }
+
+        body.dark-mode .hero-text p,
+        body.dark-mode .info-card p,
+        body.dark-mode .project-content p {
+            color: #ccc;
+        }
+
+        body.dark-mode .stat-card,
+        body.dark-mode .info-card,
+        body.dark-mode .skill-category,
+        body.dark-mode .semester,
+        body.dark-mode .project-card,
+        body.dark-mode .contact-card {
+            background: #2a2a2a;
+        }
+
+        body.dark-mode .module {
+            background: #1f1f1f;
+        }
+
+        body.dark-mode .stat-label,
+        body.dark-mode .module-desc,
+        body.dark-mode .contact-card p {
+            color: #aaa;
+        }
+
+        body.dark-mode .skill-name,
+        body.dark-mode .module-title {
+            color: #f1f1f1;
+        }
+
+        body.dark-mode .btn-secondary {
+            background: #2a2a2a;
+            color: #9a8dff;
+            border-color: #9a8dff;
+        }
+
+        body.dark-mode .btn-secondary:hover {
+            background: #9a8dff;
+            color: white;
+        }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .modules-grid, .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 0.5rem 10px;
+                font-size: 0.95rem;
+            }
+
+            .profile-img {
+                width: 180px;
+                height: 180px;
+                font-size: 4rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Walid Irhil</h1>
+                <p class="subtitle">Étudiant en Mathématiques | Développeur Passionné</p>
+                <nav>
+                    <a href="#hero">🏠 Accueil</a>
+                    <a href="#about">👤 À Propos</a>
+                    <a href="#skills">💡 Compétences</a>
+                    <a href="#modules">📚 Modules</a>
+                    <a href="#projects">💼 Projets</a>
+                    <a href="#interests">🎯 Intérêts</a>
+                    <a href="#contact">📧 Contact</a>
+                </nav>
+                <button id="theme-toggle">🌙 Mode sombre</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-section">
+                    <div class="profile-img">WI</div>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" title="GitHub">💻</a>
+                        <a href="#" class="social-btn" title="LinkedIn">💼</a>
+                        <a href="#" class="social-btn" title="Email">📧</a>
+                        <a href="#" class="social-btn" title="Instagram">📷</a>
+                    </div>
+                </div>
+                <div class="hero-text">
+                    <h2>Bienvenue sur mon Portfolio !</h2>
+                    <p>Je suis <strong>Walid Irhil</strong>, étudiant passionné en première année à l'<strong>École Supérieure de l'Éducation et de la Formation à El Jadida (ESEF)</strong>, spécialisé dans l'enseignement des mathématiques.</p>
+                    <p>Passionné par la programmation et les technologies émergentes, j'aime relever des défis intellectuels et explorer de nouveaux horizons. Mon objectif est de combiner ma passion pour les mathématiques avec mes compétences en développement pour créer des solutions innovantes et impactantes.</p>
+                    <p>Amateur de <strong>Valorant</strong>, ce jeu stimule ma réflexion stratégique, ma réactivité et mon esprit d'équipe - des qualités essentielles dans le monde professionnel.</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">💬 Me Contacter</a>
+                        <a href="#modules" class="btn btn-secondary">📖 Voir mes Études</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <h2>📊 Mon Parcours en Chiffres</h2>
+            <div class="stats-grid">
+                <div class="stat-card fade-in delay-1">
+                    <div class="stat-number">1ère</div>
+                    <div class="stat-label">Année d'Études</div>
+                </div>
+                <div class="stat-card fade-in delay-2">
+                    <div class="stat-number">42+</div>
+                    <div class="stat-label">Modules Étudiés</div>
+                </div>
+                <div class="stat-card fade-in delay-3">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Semestres au Total</div>
+                </div>
+                <div class="stat-card fade-in delay-4">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Motivation</div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 3rem;">✨ À Propos de Moi</h2>
+            <div class="info-card fade-in delay-1">
+                <h3>🎓 Formation Académique</h3>
+                <p>Actuellement en première année à l'<strong>École Supérieure de l'Éducation et de la Formation (ESEF) à El Jadida</strong>, je me spécialise dans l'<strong>enseignement des mathématiques</strong>. Cette formation rigoureuse me permet d'acquérir une expertise solide en mathématiques pures et appliquées, tout en développant des compétences pédagogiques essentielles pour transmettre efficacement le savoir. J'étudie des domaines variés comme l'analyse, l'algèbre, la topologie, la géométrie et les statistiques.</p>
+            </div>
+            <div class="info-card fade-in delay-2">
+                <h3>💻 Passion pour la Programmation</h3>
+                <p>Au-delà des mathématiques, je suis profondément passionné par la <strong>programmation</strong> et le <strong>développement informatique</strong>. J'aime explorer les nouvelles technologies, créer des projets innovants et résoudre des problèmes complexes grâce au code. Je maîtrise plusieurs langages de programmation et frameworks, ce qui me permet d'avoir une approche unique et analytique dans la résolution de problèmes. Cette double compétence mathématiques-informatique est un atout majeur dans l'ère du numérique.</p>
+            </div>
+            <div class="info-card fade-in delay-3">
+                <h3>📍 Environnement & Localisation</h3>
+                <p>Je réside à <strong>Casablanca</strong>, la capitale économique et financière du Maroc. Cette métropole dynamique et cosmopolite m'offre un environnement stimulant où je peux enrichir mes connaissances, développer mes compétences et rester constamment connecté aux dernières tendances technologiques, scientifiques et culturelles. La ville offre également de nombreuses opportunités de networking et d'apprentissage.</p>
+            </div>
+            <div class="info-card fade-in delay-4">
+                <h3>✨ Philosophie & Motivation</h3>
+                <p>Je suis une personne <strong>curieuse, motivée et déterminée</strong>. J'aime me fixer des objectifs ambitieux et travailler avec acharnement pour les atteindre. Que ce soit dans mes projets académiques ou personnels, je m'investis toujours pleinement avec rigueur, passion et professionnalisme. Ma devise : "L'apprentissage est un voyage sans fin". Mon but est de continuer à évoluer chaque jour, d'acquérir de nouvelles compétences et de contribuer positivement à la société grâce à mes connaissances.</p>
+            </div>
+            <div class="info-card fade-in delay-5">
+                <h3>🎮 Gaming & Développement des Compétences</h3>
+                <p>Je suis un joueur passionné de <strong>Valorant</strong>, un jeu de tir tactique compétitif qui demande réflexion, stratégie et coordination d'équipe. Ce jeu m'aide à développer ma <strong>réactivité</strong>, ma <strong>pensée stratégique</strong>, ma <strong>gestion du stress</strong> et mes capacités de <strong>travail en équipe</strong> - des compétences directement transférables dans le monde professionnel et académique. Le gaming m'enseigne également la persévérance et l'amélioration continue.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>💡 Mes Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in delay-1">
+                    <h3>📐 Mathématiques</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Analyse Mathématique</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Algèbre & Structures</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Statistiques & Probabilités</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Géométrie & Topologie</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in delay-2">
+                    <h3>💻 Programmation</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML & CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Algorithmique</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in delay-3">
+                    <h3>🛠️ Outils & Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git & GitHub</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>VS Code</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>LaTeX</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Jupyter Notebook</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in delay-4">
+                    <h3>🗣️ Langues</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Arabe (Maternel)</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Français</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Anglais</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Darija (Marocain)</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modules">
+        <div class="container">
+            <h2>📚 Mes Modules d'Études</h2>
+            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Voici un aperçu détaillé de tous les modules que j'étudie durant ma formation à l'ESEF El Jadida, répartis sur 6 semestres.</p>
+            <div class="modules-grid">
+                <div class="semester fade-in delay-1">
+                    <h3>📚 Semestre 1 (S1)</h3>
+                    <div class="module">
+                        <div class="module-title">Analyse 1</div>
+                        <div class="module-desc">Suites numériques et fonctions</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Algèbre 1</div>
+                        <div class="module-desc">Généralités et arithmétique dans ℤ</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Algèbre 2</div>
+                        <div class="module-desc">Structures, polynômes et fractions rationnelles</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Statistique Descriptive</div>
+                        <div class="module-desc">Introduction à la probabilité</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Informatique 1</div>
+                        <div class="module-desc">Introduction à l'informatique</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Méthodologie du Travail</div>
+                        <div class="module-desc">Universitaire, Digital Skills, Langues</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Thermodynamique</div>
+                        <div class="module-desc">Principes et applications</div>
+                    </div>
+                </div>
+
+                <div class="semester fade-in delay-2">
+                    <h3>📖 Semestre 2 (S2)</h3>
+                    <div class="module">
+                        <div class="module-title">Analyse 2 : Intégration</div>
+                        <div class="module-desc">Calcul intégral et applications</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Algèbre 3</div>
+                        <div class="module-desc">Espaces Vectoriels, Matrices et Déterminants</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Analyse 3</div>
+                        <div class="module-desc">Formules de Taylor, Développement Limité et Applications</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Informatique 2</div>
+                        <div class="module-desc">Algorithmes et Programmation</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Digital Skills en Éducation</div>
+                        <div class="module-desc">Langue 1</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Électrostatique et Magnétostatique</div>
+                        <div class="module-desc">Physique électromagnétique</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Optique</div>
+                        <div class="module-desc">Optique géométrique et ondulatoire</div>
+                    </div>
+                </div>
+
+                <div class="semester fade-in delay-3">
+                    <h3>📕 Semestre 3 (S3)</h3>
+                    <div class="module">
+                        <div class="module-title">Analyse 4</div>
+                        <div class="module-desc">Séries numériques, Suites et séries de fonctions</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Analyse 5</div>
+                        <div class="module-desc">Fonctions de plusieurs variables</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Algèbre 4</div>
+                        <div class="module-desc">Réduction des endomorphismes, applications</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Sciences de l'Éducation</div>
+                        <div class="module-desc">Théories et pratiques pédagogiques</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Informatique 3</div>
+                        <div class="module-desc">Algorithmique et Programmation avancée</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Développement Personnel</div>
+                        <div class="module-desc">Langue 2</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Mécanique</div>
+                        <div class="module-desc">Mécanique du point matériel et du solide</div>
+                    </div>
+                </div>
+
+                <div class="semester fade-in delay-4">
+                    <h3>📙 Semestre 4 (S4)</h3>
+                    <div class="module">
+                        <div class="module-title">Analyse 6</div>
+                        <div class="module-desc">Calcul intégral et formes différentielles</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Algèbre 5</div>
+                        <div class="module-desc">Dualité, espaces Euclidiens, espaces Hermitiens</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Analyse Numérique</div>
+                        <div class="module-desc">Méthodes numériques et calcul scientifique</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Informatique 4</div>
+                        <div class="module-desc">Algorithmique et structure des données</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Histoire et Patrimoine du Maroc</div>
+                        <div class="module-desc">Art et Culture, Langue 3</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Approches et Méthodes Didactiques</div>
+                        <div class="module-desc">Pédagogie des mathématiques</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Variables Aléatoires et Lois</div>
+                        <div class="module-desc">Introduction à la Statistique Inférentielle</div>
+                    </div>
+                </div>
+
+                <div class="semester fade-in delay-5">
+                    <h3>📕 Semestre 5 (S5)</h3>
+                    <div class="module">
+                        <div class="module-title">Mesure et Intégration</div>
+                        <div class="module-desc">Théorie de la mesure de Lebesgue</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Topologie Générale</div>
+                        <div class="module-desc">Espaces topologiques et applications</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Algèbre 6 : Structures Algébriques</div>
+                        <div class="module-desc">Groupes, anneaux et corps</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Didactique des Mathématiques</div>
+                        <div class="module-desc">Enseignement et pédagogie</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Déontologie du Métier</div>
+                        <div class="module-desc">Législation scolaire</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Droit, Civisme et Citoyenneté</div>
+                        <div class="module-desc">Langue 5</div>
+                    </div>
+                </div>
+
+                <div class="semester fade-in delay-6">
+                    <h3>📗 Semestre 6 (S6)</h3>
+                    <div class="module">
+                        <div class="module-title">Calcul Différentiel</div>
+                        <div class="module-desc">Dérivées et applications</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Algèbre et Géométrie</div>
+                        <div class="module-desc">Géométrie analytique et transformations</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Analyse Complexe</div>
+                        <div class="module-desc">Fonctions holomorphes et théorèmes</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Docimologie et Évaluation</div>
+                        <div class="module-desc">Techniques d'évaluation pédagogique</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Langue 6</div>
+                        <div class="module-desc">Communication professionnelle</div>
+                    </div>
+                    <div class="module">
+                        <div class="module-title">Histoire et Épistémologie</div>
+                        <div class="module-desc">Des Mathématiques et approche multidisciplinaire</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>💼 Mes Projets</h2>
+            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Découvrez quelques-uns des projets sur lesquels j'ai travaillé ou que je développe actuellement.</p>
+            <div class="projects-grid">
+                <div class="project-card fade-in delay-1">
+                    <div class="project-image">🧮</div>
+                    <div class="project-content">
+                        <h3>Calculatrice Scientifique</h3>
+                        <p>Application web interactive pour effectuer des calculs mathématiques complexes avec interface utilisateur intuitive et moderne.</p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">Math.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-2">
+                    <div class="project-image">📊</div>
+                    <div class="project-content">
+                        <h3>Visualisation de Données</h3>
+                        <p>Outil de visualisation statistique pour analyser et présenter des données mathématiques de manière graphique et interactive.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Matplotlib</span>
+                            <span class="tag">NumPy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-3">
+                    <div class="project-image">🎓</div>
+                    <div class="project-content">
+                        <h3>Plateforme E-Learning</h3>
+                        <p>Site web éducatif pour aider les étudiants à apprendre les mathématiques avec des cours, exercices et quiz interactifs.</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-4">
+                    <div class="project-image">🤖</div>
+                    <div class="project-content">
+                        <h3>Algorithmes de Tri</h3>
+                        <p>Implémentation et visualisation de différents algorithmes de tri avec comparaison de performances et complexité temporelle.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Algorithmes</span>
+                            <span class="tag">Animation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-5">
+                    <div class="project-image">📱</div>
+                    <div class="project-content">
+                        <h3>Portfolio Personnel</h3>
+                        <p>Ce site web moderne et responsive que vous visitez actuellement, conçu pour présenter mon parcours et mes compétences.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in delay-6">
+                    <div class="project-image">🎯</div>
+                    <div class="project-content">
+                        <h3>Résolveur d'Équations</h3>
+                        <p>Application pour résoudre automatiquement différents types d'équations mathématiques avec affichage détaillé des étapes.</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">SymPy</span>
+                            <span class="tag">Interface</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests">
+        <div class="container">
+            <h2>🎯 Centres d'Intérêt</h2>
+            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">Mes passions et activités qui m'inspirent au quotidien et contribuent à mon développement personnel.</p>
+            <div class="interests">
+                <div class="interest-tag">💻 Programmation</div>
+                <div class="interest-tag">🎮 Valorant</div>
+                <div class="interest-tag">📚 Apprentissage Continu</div>
+                <div class="interest-tag">🔬 Technologies Émergentes</div>
+                <div class="interest-tag">🧮 Mathématiques</div>
+                <div class="interest-tag">🎯 Défis Intellectuels</div>
+                <div class="interest-tag">🌟 Innovation</div>
+                <div class="interest-tag">♟️ Stratégie & Tactique</div>
+                <div class="interest-tag">🤖 Intelligence Artificielle</div>
+                <div class="interest-tag">🎨 Design & UI/UX</div>
+                <div class="interest-tag">📖 Lecture Scientifique</div>
+                <div class="interest-tag">🏆 Compétitions</div>
+                <div class="interest-tag">👥 Travail d'Équipe</div>
+                <div class="interest-tag">🎬 Cinéma & Séries</div>
+                <div class="interest-tag">🎵 Musique</div>
+                <div class="interest-tag">✈️ Découverte Culturelle</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>📧 Me Contacter</h2>
+            <p style="color: #666; font-size: 1.1rem; margin-bottom: 2rem;">N'hésitez pas à me contacter pour toute collaboration, question ou simplement pour échanger !</p>
+            <div class="contact-grid">
+                <div class="contact-card fade-in delay-1">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>irhil911@gmail.com</p>
+                </div>
+                <div class="contact-card fade-in delay-2">
+                    <div class="contact-icon">📱</div>
+                    <h3>Téléphone</h3>
+                    <p>+212 6XX XXX XXX</p>
+                </div>
+                <div class="contact-card fade-in delay-3">
+                    <div class="contact-icon">📍</div>
+                    <h3>Localisation</h3>
+                    <p>Casablanca, Maroc</p>
+                </div>
+                <div class="contact-card fade-in delay-4">
+                    <div class="contact-icon">💼</div>
+                    <h3>LinkedIn</h3>
+                    <p>linkedin.com/in/walidirhil</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-indicator" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        ↑
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Walid Irhil | Tous droits réservés</p>
+                <p>Étudiant ESEF El Jadida | Casablanca, Maroc 🇲🇦</p>
+                <div class="footer-links">
+                    <a href="#hero">Accueil</a>
+                    <a href="#about">À Propos</a>
+                    <a href="#skills">Compétences</a>
+                    <a href="#modules">Modules</a>
+                    <a href="#projects">Projets</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.95rem;">Conçu avec ❤️ et beaucoup de ☕</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Attendre que le DOM soit complètement chargé
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById("theme-toggle");
+            const body = document.body;
+
+            // Charger le thème sauvegardé depuis la mémoire
+            let currentTheme = 'light';
+            
+            // Fonction pour appliquer le thème
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    body.classList.add("dark-mode");
+                    toggleBtn.textContent = "☀️ Mode clair";
+                    currentTheme = 'dark';
+                } else {
+                    body.classList.remove("dark-mode");
+                    toggleBtn.textContent = "🌙 Mode sombre";
+                    currentTheme = 'light';
+                }
+            }
+
+            // Appliquer le thème par défaut
+            applyTheme(currentTheme);
+
+            // Basculer le thème quand on clique sur le bouton
+            toggleBtn.addEventListener("click", function() {
+                if (currentTheme === 'light') {
+                    applyTheme('dark');
+                } else {
+                    applyTheme('light');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+                
