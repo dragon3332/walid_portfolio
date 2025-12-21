@@ -371,15 +371,15 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: white;
+            overflow: hidden;
             margin: 0 auto 1.5rem;
             box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+        }
+        
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .social-links {
@@ -874,7 +874,7 @@
             </div>
             <div class="hero-visual">
                 <div class="profile-card">
-                    <div class="avatar">WI</div>
+                    <div class="avatar"><img src="moi.png" alt="Walid Irhil"></div>
                     <h3 style="margin-bottom: 0.5rem;">Walid Irhil</h3>
                     <p style="color: var(--text-gray); font-size: 0.9rem;">ESEF El Jadida</p>
                     <div class="social-links">
@@ -1648,4 +1648,5 @@
 </body>
 
 </html>
+
 
